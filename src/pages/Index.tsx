@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import ProductSection from "@/components/sections/ProductSection";
+import VolunteerSection from "@/components/sections/VolunteerSection";
+import LoginDialog from "@/components/LoginDialog";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleAdminLogin = () => {
+    navigate("/admin");
+  };
+
+  const handleGetStarted = () => {
+    setIsLoginOpen(true);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navbar onLoginClick={() => setIsLoginOpen(true)} />
+      <HeroSection onGetStarted={handleGetStarted} />
+      <AboutSection />
+      <ProductSection />
+      <VolunteerSection />
+      
+      <LoginDialog 
+        isOpen={isLoginOpen}
+        onOpenChange={setIsLoginOpen}
+        onAdminLogin={handleAdminLogin}
+      />
     </div>
   );
 };

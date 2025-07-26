@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					soft: 'hsl(var(--primary-soft))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -52,6 +53,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				glass: {
+					DEFAULT: 'hsl(var(--glass))',
+					border: 'hsl(var(--glass-border))',
+					gray: 'hsl(var(--glass-gray))',
+					'gray-hover': 'hsl(var(--glass-gray-hover))',
+					backdrop: 'hsl(var(--glass-backdrop))',
+					shadow: 'hsl(var(--glass-shadow))',
+					'border-light': 'hsl(var(--glass-border-light))'
+				},
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +79,19 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backdropBlur: {
+				xs: '2px',
+			},
+			boxShadow: {
+				glass: 'var(--shadow-glass)',
+				soft: 'var(--shadow-soft)',
+				'primary-glow': 'var(--shadow-primary)',
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-glass': 'var(--gradient-glass)',
+				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +109,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glass-shine': {
+					'0%': { transform: 'translateX(-100%) rotate(35deg)' },
+					'100%': { transform: 'translateX(100%) rotate(35deg)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'fade-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glass-shine': 'glass-shine 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'fade-up': 'fade-up 0.6s ease-out'
 			}
 		}
 	},
