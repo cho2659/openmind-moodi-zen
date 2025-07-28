@@ -34,8 +34,7 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
               AI-Powered Mental Health Counseling
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experience compassionate, intelligent mental health support with our advanced AI counselor. 
-              Available 24/7 to provide personalized guidance and emotional support.
+              Get help by talking to our AI mental health therapist.
             </p>
           </div>
 
@@ -50,11 +49,11 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
               {
                 icon: Heart,
                 title: "Compassionate",
-                description: "Empathetic responses tailored to your emotional needs"
+                description: "Empathetic responses tailored to your mental health needs"
               },
               {
                 icon: Users,
-                title: "24/7 Support",
+                title: "Support",
                 description: "Always available when you need someone to talk to"
               }
             ].map((feature, index) => (
@@ -91,11 +90,10 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
 
           {/* Trust indicators */}
           <div className="mt-16 animate-fade-up" style={{ animationDelay: '0.6s' }}>
-            <p className="text-sm text-muted-foreground mb-4">Trusted by mental health professionals</p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-2xl font-bold">✓ HIPAA Compliant</div>
+              <div className="text-2xl font-bold">✓ Trusted training data</div>
               <div className="text-2xl font-bold">✓ Secure & Private</div>
-              <div className="text-2xl font-bold">✓ Evidence-Based</div>
+              <div className="text-2xl font-bold">✓ Advanced AI in mental health</div>
             </div>
           </div>
         </div>

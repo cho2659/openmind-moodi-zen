@@ -15,6 +15,10 @@ const Index = () => {
     navigate("/admin");
   };
 
+  const handleUserLogin = () => {
+    navigate("/chat");
+  };
+
   const handleGetStarted = () => {
     setIsLoginOpen(true);
   };
@@ -31,6 +35,7 @@ const Index = () => {
         isOpen={isLoginOpen}
         onOpenChange={setIsLoginOpen}
         onAdminLogin={handleAdminLogin}
+        onUserLogin={handleUserLogin}
       />
     </div>
   );

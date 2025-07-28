@@ -9,9 +9,14 @@ interface LoginDialogProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   onAdminLogin: () => void;
+  onUserLogin: () => void;
 }
 
-const LoginDialog = ({ isOpen, onOpenChange, onAdminLogin }: LoginDialogProps) => {
+// Demo credentials:
+// • Admin: admin@openmind.com / admin123
+// • User: any email / any password
+
+const LoginDialog = ({ isOpen, onOpenChange, onAdminLogin, onUserLogin }: LoginDialogProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +42,7 @@ const LoginDialog = ({ isOpen, onOpenChange, onAdminLogin }: LoginDialogProps) =
           title: "Login successful!",
           description: "Welcome to OpenMind counseling platform.",
         });
+        onUserLogin();
         onOpenChange(false);
         setEmail("");
         setPassword("");
@@ -87,11 +93,7 @@ const LoginDialog = ({ isOpen, onOpenChange, onAdminLogin }: LoginDialogProps) =
             />
           </div>
 
-          <div className="text-xs text-muted-foreground">
-            <p>Demo credentials:</p>
-            <p>• Admin: admin@openmind.com / admin123</p>
-            <p>• User: any email / any password</p>
-          </div>
+
           
           <Button 
             type="submit" 

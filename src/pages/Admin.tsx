@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Users, Plus, Settings, BarChart3, ArrowLeft } from "lucide-react";
+import { Users, Plus, Settings, BarChart3, ArrowLeft, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface User {
@@ -54,6 +54,14 @@ const Admin = () => {
   });
 
   const [showAddUser, setShowAddUser] = useState(false);
+
+  const handleLogout = () => {
+    toast({
+      title: "Logged out",
+      description: "You have been successfully logged out.",
+    });
+    navigate("/");
+  };
 
   const handleAddUser = (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,13 +121,23 @@ const Admin = () => {
                 <p className="text-sm text-muted-foreground">User Management Dashboard</p>
               </div>
             </div>
-            <Button 
-              variant="glass-primary"
-              onClick={() => setShowAddUser(true)}
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              Add User
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button 
+                variant="glass-primary"
+                onClick={() => setShowAddUser(true)}
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Add User
+              </Button>
+              <Button 
+                variant="glass"
+                onClick={handleLogout}
+                className="flex items-center space-x-2"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

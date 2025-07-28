@@ -1,42 +1,58 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heart, Users, BookOpen, Award } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const VolunteerSection = () => {
+interface VolunteerSectionProps {
+  onVolunteerClick?: () => void;
+}
+
+const VolunteerSection = ({ onVolunteerClick }: VolunteerSectionProps) => {
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start' 
+    });
+    setIsMenuOpen(false);
+  };
+
+  const handleVolunteerClick = () => {
+    navigate("/volunteer");
+  };
+  
   const opportunities = [
     {
-      icon: Heart,
-      title: "Peer Support Specialist",
-      description: "Provide guidance and share your recovery journey with others who need support.",
-      commitment: "4-6 hours/week"
-    },
-    {
       icon: Users,
-      title: "Community Moderator",
-      description: "Help maintain a safe and supportive environment in our community forums.",
-      commitment: "2-4 hours/week"
+      title: "Node Operator",
+      description: "Help maintain a safe and fast AI mental health model by running a volunteer node.",
     },
     {
-      icon: BookOpen,
-      title: "Content Reviewer",
-      description: "Review and improve mental health resources and educational materials.",
-      commitment: "3-5 hours/week"
+      icon: Heart,
+      title: "Community Support",
+      description: "Join our community of volunteers making mental health accessible to everyone.",
     },
     {
       icon: Award,
-      title: "Mentor",
-      description: "Guide new users through their first steps on their mental health journey.",
-      commitment: "5-8 hours/week"
+      title: "Recognition",
+      description: "Get recognized for your contributions to mental health advocacy.",
+    },
+    {
+      icon: BookOpen,
+      title: "Learning",
+      description: "Learn about AI, mental health, and distributed computing systems.",
     }
   ];
 
   const benefits = [
-    "Flexible scheduling that works with your life",
-    "Comprehensive training and ongoing support", 
-    "Connect with a community of like-minded individuals",
     "Make a meaningful impact in mental health advocacy",
-    "Professional development opportunities",
-    "Recognition and certification programs"
+    "Choose how much computer resources to use when volunteering",
+    "Join a global community of like-minded volunteers",
+    "Learn valuable skills in AI and distributed systems",
+    "Help make mental health support more accessible worldwide"
   ];
 
   return (
@@ -48,8 +64,7 @@ const VolunteerSection = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Join our community of dedicated volunteers helping to make mental health support 
-            more accessible and impactful for everyone. Your experience and compassion can 
-            make a real difference.
+            more accessible and impactful for everyone. Making it safer and more faster.
           </p>
         </div>
 
@@ -65,9 +80,6 @@ const VolunteerSection = () => {
               </div>
               <h3 className="text-lg font-semibold mb-3">{opportunity.title}</h3>
               <p className="text-muted-foreground text-sm mb-4">{opportunity.description}</p>
-              <div className="bg-primary/10 rounded-lg px-3 py-1">
-                <p className="text-primary text-xs font-medium">{opportunity.commitment}</p>
-              </div>
             </Card>
           ))}
         </div>
@@ -77,9 +89,7 @@ const VolunteerSection = () => {
           <div>
             <h3 className="text-3xl font-semibold mb-6">Why Volunteer with OpenMind?</h3>
             <p className="text-lg text-muted-foreground mb-6">
-              Your lived experience and desire to help others can be powerful tools for healing. 
-              As a volunteer, you'll not only support others but also continue your own growth 
-              and recovery journey.
+              By being a volunteer, you can help make mental health support more accessible and impactful for everyone.
             </p>
             
             <div className="space-y-3">
@@ -99,42 +109,13 @@ const VolunteerSection = () => {
               </div>
               <h4 className="text-2xl font-semibold mb-4">Join Our Community</h4>
               <p className="text-muted-foreground mb-6">
-                Over 500+ volunteers worldwide are already making a difference. 
+                Make a difference with your own hands. 
                 Become part of our mission to democratize mental health support.
               </p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Active Volunteers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">10K+</div>
-                  <div className="text-sm text-muted-foreground">Lives Impacted</div>
-                </div>
-              </div>
-              
-              <Button variant="glass-primary" className="w-full">
+              <Button variant="glass-primary" onClick={handleVolunteerClick} className="w-full">
                 Apply to Volunteer
               </Button>
             </div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center bg-glass/60 backdrop-blur-sm border border-glass-border/30 rounded-2xl p-8 shadow-glass">
-          <h3 className="text-2xl font-semibold mb-4">Ready to Make a Difference?</h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Whether you have 2 hours a week or 10, there's a volunteer opportunity that fits your schedule and interests. 
-            Start your application today and join our mission to support mental health for all.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="glass-primary" size="lg">
-              Start Application
-            </Button>
-            <Button variant="glass-outline" size="lg">
-              Learn More
-            </Button>
           </div>
         </div>
       </div>

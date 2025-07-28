@@ -36,7 +36,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 OpenMind
               </h1>
-              <p className="text-xs text-muted-foreground -mt-1">by moodi</p>
             </div>
           </div>
 
