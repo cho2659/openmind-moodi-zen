@@ -11,7 +11,7 @@ import moodi from "../../img/moodi.png";
 interface Message {
   id: string;
   content: string;
-  role: 'user' | 'assistant';
+  role: 'user' | 'assistant'; 
   timestamp: Date;
 }
 
